@@ -1,0 +1,32 @@
+https://colab.research.google.com/drive/1vPTzWpuDKo52EF0_9Uhm6fGCWRaMhl04?authuser=1
+import pandas as pd
+import os
+os.getcwd
+
+import pandas as pd
+import os
+os.getcwd
+
+from google.colab import files
+uploaded = files.upload()
+
+df = pd.read_csv("Tubes 1006 RD.csv")
+df.head(10)
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+
+sns.set_theme(style="ticks")
+plt=sns.lmplot(
+    data=df, x="Time", y="Conc.", col="Catheter", hue="Type",
+    col_wrap=2, palette="Set1", ci=None, fit_reg=False,
+    height=6, scatter_kws={"s": 50, "alpha": 1})
+plt.set(ylim=(9,80))
+plt.set(xlabel='Time[min]', ylabel='Concentration[µg/ml]')
+plt.fig.suptitle('6th Reference Expt.');
+#plt.suptitle("Reference Experiment")
+#fig.suptitle("My figtitle")
+#title=(main= ("Reference Experiment"))
